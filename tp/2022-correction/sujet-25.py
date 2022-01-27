@@ -27,9 +27,6 @@ animaux = [{'nom': 'Medor', 'espece': 'chien', 'age': 5, 'enclos': 2},
 
 # Exercice 2
 
-# Le noyau redemmarre quand in fait le test pour le tableau 1 et 3...
-# Voir quel est le problème sur la récursivité
-
 
 def trouver_intrus(tab, g, d):
     '''
@@ -45,10 +42,10 @@ def trouver_intrus(tab, g, d):
         nombre_de_triplets = (d - g) // 3
         indice = g + 3 * (nombre_de_triplets // 2)
         if tab[indice] == tab[indice + 1]:
-            return trouver_intrus(tab, indice, d)
+            return trouver_intrus(tab, indice+3, d)
         else:
             return trouver_intrus(tab, g, indice)
 
-# print(trouver_intrus([8, 5, 5, 5, 9, 9, 9, 18, 18, 18, 3, 3, 3], 0, 12))
-# print(trouver_intrus([3, 3, 3, 9, 9, 9, 1, 1, 1, 7, 2, 2, 2, 4, 4, 4, 8, 8, 8, 5, 5, 5], 0, 21))
-# print(trouver_intrus([5, 5, 5, 1, 1, 1, 0, 0, 0, 6, 6, 6, 3, 8, 8, 8], 0, 15))
+assert trouver_intrus([8, 5, 5, 5, 9, 9, 9, 18, 18, 18, 3, 3, 3], 0, 12) == 8
+assert trouver_intrus([3, 3, 3, 9, 9, 9, 1, 1, 1, 7, 2, 2, 2, 4, 4, 4, 8, 8, 8, 5, 5, 5], 0, 21) == 7
+assert trouver_intrus([5, 5, 5, 1, 1, 1, 0, 0, 0, 6, 6, 6, 3, 8, 8, 8], 0, 15) == 3
