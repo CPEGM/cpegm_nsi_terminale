@@ -59,8 +59,8 @@ class ABR:
             return tab
         else:
             self.racine.gauche.parcours(tab)
-            tab.append(...)
-            ...
+            tab.append(self.racine.valeur)
+            self.racine.droite.parcours(tab)
             return tab
 
     def insere(self, element):
@@ -73,20 +73,20 @@ class ABR:
             else :
                 self.racine.droite.insere(element)
 
-#     def recherche(self, element):
-#         '''
-#         Renvoie True si element est présent dans l'arbre
-#         binaire et False sinon.
-# 	 '''
-#         if self.est_vide():
-#             return ...
-#         else:
-#             if element < self.racine.valeur:
-#                 return ...
-#             elif element > self.racine.valeur:
-#                 return ...
-#             else:
-#                 return ...
+    def recherche(self, element):
+        '''
+        Renvoie True si element est présent dans l'arbre
+        binaire et False sinon.
+	 '''
+        if self.est_vide():
+            return False
+        else:
+            if element < self.racine.valeur:
+                return self.racine.gauche.recherche(element)
+            elif element > self.racine.valeur:
+                return self.racine.droite.recherche(element)
+            else:
+                return True
 
 a = ABR()
 a.insere(7)
@@ -95,5 +95,5 @@ a.insere(9)
 a.insere(1)
 a.insere(9)
 print(a.parcours())
-# print(a.recherche(4))
-# print(a.recherche(3))
+print(a.recherche(4))
+print(a.recherche(3))
