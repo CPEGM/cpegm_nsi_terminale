@@ -32,13 +32,13 @@ def est_cyclique(plan):
     et False sinon.
     '''
     personne = 'A'
-    N = len(...)
-    for i in range(...):
-        if plan[...] == ...:
-            return ...
+    N = len(plan)
+    for i in range(N-1):
+        if plan[personne] == 'A':
+            return False
         else:
-            personne = ...
-    return ...
+            personne = plan[personne]
+    return True
 
 plan_a = {'A':'E', 'F':'A', 'C':'D', 'E':'B', 'B':'F', 'D':'C'}
 plan_b = {'A':'E', 'F':'C', 'C':'D', 'E':'B', 'B':'F', 'D':'A'}
