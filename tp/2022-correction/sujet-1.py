@@ -17,6 +17,7 @@ def recherche( car, chaine):
             cpt += 1
     return cpt
 
+assert recherche('E', 'AYUJEDHEGDGKD') == 3, 'Erreur de compteur'
 
 # Exercice 2
 
